@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+    - name: web
+      image: valque/conversao-temperatura:v1
+      ports:
+        - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod-label
+  labels:
+    app: web
+spec:
+  containers:
+    - name: web
+      image: valque/conversao-temperatura:v1
+      ports:
+        - containerPort: 8080
